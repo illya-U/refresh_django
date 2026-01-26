@@ -79,6 +79,15 @@ def debug_request(request):
 
     eee = [post.categories_count for post in posts]
 
+    posts = Post.objects.all()
+
+    print("111")
+
+    for post in posts:
+        print(post.author.username)
+
+
+
     aaa = 1
 
 

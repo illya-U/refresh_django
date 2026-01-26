@@ -1,6 +1,5 @@
 from doctest import UnexpectedException
 
-from Tools.scripts.highlight import analyze_python
 from django.db import transaction
 from django.db.models import F, Value
 from django.db.models.functions import Concat
