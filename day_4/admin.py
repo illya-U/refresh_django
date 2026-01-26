@@ -17,7 +17,6 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('id', 'username', 'is_middle_age')
     list_filter = ('age', 'username')
     search_fields = ('username',)
-    readonly_fields = ('age',)
     actions = [make_adult]
 
     def is_middle_age(self, obj):

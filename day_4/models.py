@@ -4,6 +4,12 @@ class UserProfile(models.Model):
     username = models.CharField(max_length=100)
     age = models.IntegerField()
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['username'], name='unique_user_email')
+        ]
+
+
 class Category(models.Model):
     title = models.CharField(max_length=100)
 
