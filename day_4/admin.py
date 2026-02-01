@@ -11,6 +11,9 @@ def make_adult(modeladmin, request, queryset):
 
 make_adult.short_description = "Increase age by 1"
 
+class PostInline(admin.StackedInline):
+    model = Post
+    extra = 0
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
@@ -18,6 +21,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_filter = ('age', 'username')
     search_fields = ('username',)
     actions = [make_adult]
+    inlines = [PostInline]
 
     def is_middle_age(self, obj):
         return 30 <= obj.age <= 40

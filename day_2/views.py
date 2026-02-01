@@ -64,8 +64,6 @@ def debug_request(request):
     posts = Post.objects.select_related('author')
     aaa = [post.author.id for post in posts]
 
-    users = UserProfile.objects.prefetch_related('posts')
-    bbb = [user.posts.all() for user in users]
 
     posts = Post.objects.prefetch_related("categories")
     ccc = [post.categories.all() for post in posts]
