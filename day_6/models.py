@@ -10,4 +10,4 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="posts")
-    categories = models.ManyToManyField(Category, related_name = "categories")
+    categories = models.ManyToManyField(Category, related_name="categories")
