@@ -94,10 +94,6 @@ class PostGetFilterAPIView(ListModelMixin, GenericAPIView):
     def get(self, *args, **kwargs):
         return self.list(*args, **kwargs)
 
-class GetCsrfTokenAPIView(APIView):
-    def get(self, request):
-        return Response(status=status.HTTP_200_OK)
-
 
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
@@ -127,6 +123,10 @@ class PostViewSet(ModelViewSet):
         else:
             return Response("this category id is not relevant", status=status.HTTP_400_BAD_REQUEST)
 
+        return Response(status=status.HTTP_200_OK)
+
+class GetCsrfTokenAPIView(APIView):
+    def get(self, request):
         return Response(status=status.HTTP_200_OK)
 
 # session authentication

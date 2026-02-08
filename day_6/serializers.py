@@ -21,7 +21,6 @@ class PostSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("no default title in title")
         return attrs
 
-
     def validate_title(self, value):
         if 'specific' in value.lower():
             raise serializers.ValidationError("no specific in post")
