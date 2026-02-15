@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'day_6',
     'day_7',
     'day_8.apps.Day8Config',
+    'day_9',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'day_9.middlewars.MyCustomLogger',
 ]
 
 ROOT_URLCONF = 'refresh_django.urls'

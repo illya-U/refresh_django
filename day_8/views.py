@@ -14,9 +14,6 @@ from day_8.serializers import DefaultOrderSerializer, CreateOrderSerializer, Can
 
 # Create your views here.
 class OrdersApiView(APIView):
-    # filter_backends = [OrderingFilter]
-    # ordering_fields = ['created_at']
-
     def get(self, request):
         orders = Order.objects.select_related("user")
         serializer = DefaultOrderSerializer(orders, many=True)

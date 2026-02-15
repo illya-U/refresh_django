@@ -161,7 +161,6 @@ class LogoutAPIView(APIView):
 # token authentication
 
 class RegisterJWTAPIView(APIView):
-    authentication_classes = [JWTAuthentication]
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -178,17 +177,11 @@ class RegisterJWTAPIView(APIView):
         }, status=status.HTTP_201_CREATED)
 
 class LoginJWTAPIView(APIView):
-    authentication_classes = [JWTAuthentication]
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        user = authenticate(
-            username=serializer.validated_data.get("username"),
-            password=serializer.validated_data.get("password")
-        )
-        if not user:
-            return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+        user = serializer.validated_data["user"]
 
         refresh = RefreshToken.for_user(user)
         access = refresh.access_token

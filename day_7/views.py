@@ -1,12 +1,8 @@
-from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin
-from rest_framework.response import Response
-from rest_framework.throttling import ScopedRateThrottle
-from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from day_7.models import Post, Category
-from day_7.paginations import DefaultPagination, CustomPagination, PostCursorPagination
+from day_7.paginations import PostCursorPagination
 from day_7.serializers import PostSerializer, CategorySerializer
 from day_7.throttles import PostGetThrottle
 
