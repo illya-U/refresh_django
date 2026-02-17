@@ -10,7 +10,7 @@ class OrderStatus(models.TextChoices):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders_day_8")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders_day_10")
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(
         max_length=20,
@@ -52,7 +52,7 @@ class Payment(models.Model):
             models.UniqueConstraint(
                 fields=["order"],
                 condition=Q(status=PaymentStatus.SUCCESS),
-                name="unique_success_payment_per_order_day_8"
+                name="unique_success_payment_per_order_day_10"
             )
         ]
 
